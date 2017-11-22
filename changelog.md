@@ -1,4 +1,4 @@
-
+- fix title length check for 1.8 and added new check for DecoderException
 
 
 --------------------------------------------------
