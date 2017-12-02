@@ -1,7 +1,6 @@
 package me.nikl.gamebox.nms;
 
 import com.google.gson.stream.JsonReader;
-import net.minecraft.server.v1_12_R1.ChatMessage;
 import net.minecraft.server.v1_12_R1.ChatMessageType;
 import net.minecraft.server.v1_12_R1.EntityPlayer;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
@@ -33,7 +32,9 @@ public class NMSUtil_1_12_R1 implements NMSUtil{
 	public void updateInventoryTitle(Player player, String newTitle) {
 		EntityPlayer entityPlayer = ((CraftPlayer)player).getHandle();
 		PacketPlayOutOpenWindow packet = new PacketPlayOutOpenWindow(entityPlayer.activeContainer.windowId,
-				"minecraft:chest", new ChatMessage(ChatColor.translateAlternateColorCodes('&',newTitle)),
+				"minecraft:chest"
+				, IChatBaseComponent.ChatSerializer.a("{\"text\": \""
+				+ ChatColor.translateAlternateColorCodes('&',newTitle + "\"}")),
 				player.getOpenInventory().getTopInventory().getSize());
 		entityPlayer.playerConnection.sendPacket(packet);
 		entityPlayer.updateInventory(entityPlayer.activeContainer);
