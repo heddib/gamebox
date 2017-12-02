@@ -9,7 +9,12 @@ import java.math.BigInteger;
  */
 public class NumberUtil {
 
+
     public static String convertHugeNumber(double number){
+        return convertHugeNumber(number, true);
+    }
+
+    public static String convertHugeNumber(double number, boolean shortNames){
         if(number >= 1000.) {
             String numberStr = String.format("%.0f", number);
 
@@ -52,7 +57,11 @@ public class NumberUtil {
                 return "Way too much...";
             }
 
-            return numberStr + NAMES[index - 1];
+            if(shortNames) {
+                return numberStr + SHORTNAMES[index - 1];
+            } else {
+                return numberStr + NAMES[index - 1];
+            }
         } else {
             String numberStr = String.valueOf(number);
             String[] split = numberStr.split("\\.");
@@ -93,5 +102,29 @@ public class NumberUtil {
             " octodecillion",
             " novemdecillion",
             " vigintillion",
+    };
+
+    private static final String SHORTNAMES[] = new String[]{
+            "",
+            " M",
+            " B",
+            " T",
+            " Quad",
+            " Quin",
+            " Sext",
+            " Sept",
+            " Oct",
+            " Non",
+            " Dec",
+            " Undec",
+            " Duodec",
+            " Tredec",
+            " Quattuordec",
+            " Quindec",
+            " Sexdec",
+            " Septendec",
+            " Octodec",
+            " Novemdec",
+            " Vigint",
     };
 }
