@@ -1,7 +1,11 @@
-- fix title length check for 1.8 and added new check for DecoderException
 
 
 --------------------------------------------------
+v 1.5.11
+- shorter name for long numbers
+- fix "Unknown translation key" problem with protocol support
+- fix title length check for 1.8 and added new check for DecoderException
+
 v 1.5.10
 - fixed wrong language on sound toggle
 - shade HikariCP and slf4j for MySQL data storage
