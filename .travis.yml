@@ -3,7 +3,7 @@ jobs:
   include:
     - stage: GitHub Release
       script: echo "Deploying to GitHub releases ..."
-      script: echo GITHUB_ACCESS_TOKEN | travis encrypt -r heddib/gamebox
+      script: echo GITHUB_ACCESS_TOKEN
       deploy:
         provider: releases
         api_key: 7ae94872d5e59b929e6301a98d47dc2f40a1efb7 
